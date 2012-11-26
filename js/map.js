@@ -53,7 +53,7 @@ $(document).ready(function() {
 
   var povIcon = L.Icon.extend({
     options: {
-      iconUrl: "../images/theme/pov.png",
+      iconUrl: "images/theme/pov.png",
       shadowUrl: null
     }
   });
