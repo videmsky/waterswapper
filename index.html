@@ -36,8 +36,6 @@
     </div>
 
     <div id="map"></div>
-    <h1>test</h1>
-
 
     <script type="text/javascript" src="js/jquery-1.8.2.js"></script>
     <script type="text/javascript" src="js/leaflet.js"></script>
@@ -50,49 +48,15 @@
     
     <script type="text/javascript">
 
-    // Proof of concept for AJAX usage with instantaneous values service
-    // $('#query').click(function() {
-    //   site = $('#site').attr("value");
-    //   $.ajax({
-    //     url: "http://waterservices.usgs.gov/nwis/iv/?format=json&sites=" + site + "&parameterCd=00060",
-    //     dataType: 'json',
-    //     data: '',
-    //     success: function(json){
-    //        $('#sitedesc').text(json.value.timeSeries[0].sourceInfo.siteName);
-    //        $('#discharge').val(json.value.timeSeries[0].values[0].value[0].value);
-    //        datetime = json.value.timeSeries[0].values[0].value[0].dateTime;
-    //        // Get date
-    //        myDate = datetime.substr(5,2) + '/' + datetime.substr(8,2) + '/' + datetime.substr(0,4);
-    //        $('#date').val(myDate);
-    //        // Get time
-    //        myTime = datetime.substr(11,5);
-    //        $('#time').val(myTime);
-    //        // Get timezone
-    //        myTZ = datetime.substr(23);
-    //        $('#tz').val(myTZ);
-    //      },
-    //     error : function(XMLHttpRequest, textStatus, errorThrown) {
-    //        $('#sitedesc').text('Error. Site Number was probably invalid or not a real-time site.');
-    //        $('#discharge').val('');
-    //        $('#date').val('');
-    //        $('#time').val('');
-    //        $('#tz').val('');
-    //     }
-    //   });
-    // });
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-36595085-1']);
+      _gaq.push(['_trackPageview']);
 
-
-    // $('#query').click(function() {
-    //   var path = $('#site').val();
-    //   console.log(path);
-    
-    //   requestCrossDomain(path, function(results){
-    //     $('#container').html(results);
-    //     // console.log(results);
-    //   });
-    //   return false;
-
-    // });
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
 
     </script>
 
