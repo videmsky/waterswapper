@@ -1,5 +1,5 @@
 
-var water_pov;
+// var water_pov;
 
 $(document).ready(function() {
 
@@ -51,28 +51,43 @@ $(document).ready(function() {
   //     }
   // }).addTo(map);
 
-  var povIcon = L.Icon.extend({
-    options: {
-      iconUrl: "images/theme/pov.png",
-      shadowUrl: null
+  // var povIcon = L.Icon.extend({
+  //   options: {
+  //     iconUrl: "images/theme/pov.png",
+  //     shadowUrl: null
+  //   }
+  // });
+
+  // water_pov = new lvector.GISCloud({
+  //   mapID: 77214,
+  //   layerID: 239889,
+  //   scaleRange: [5, 20],
+  //   symbology: {
+  //     type: "single", 
+  //     vectorOptions: {
+  //       icon: new povIcon()
+  //     }
+  //   },
+  //   popupTemplate: '<div class="iw-content"><h5>{pod_id}</h5><table class="condensed-table"><tr><td>{watershed}</td></tr><tr><td>{county}</td></tr></table></div>',
+  //   singlePopup: true
+  // });
+
+  // water_pov.setMap(map);
+
+
+  var markers = new L.MarkerClusterGroup({
+    // showCoverageOnHover: false
+  });
+
+  var geoJsonLayer = L.geoJson(pov, {
+    onEachFeature: function (feature, layer) {
+      layer.bindPopup('<strong>Pod ID: ' + feature.properties.POD_ID + '</strong><br>Source Name: ' + feature.properties.SOURCE_NAME + '<br>Watershed: ' + feature.properties.WATERSHED);
     }
   });
+  markers.addLayer(geoJsonLayer);
 
-  water_pov = new lvector.GISCloud({
-    mapID: 77214,
-    layerID: 239889,
-    scaleRange: [5, 20],
-    symbology: {
-      type: "single", 
-      vectorOptions: {
-        icon: new povIcon()
-      }
-    },
-    popupTemplate: '<div class="iw-content"><h5>{pod_id}</h5><table class="condensed-table"><tr><td>{watershed}</td></tr><tr><td>{county}</td></tr></table></div>',
-    singlePopup: true
-  });
-
-  water_pov.setMap(map);
+  map.addLayer(markers);
+  map.fitBounds(markers.getBounds());
 
 });
 
