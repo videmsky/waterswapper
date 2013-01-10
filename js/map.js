@@ -1,5 +1,5 @@
 
-// var water_pov;
+// var waterPov;
 
 $(document).ready(function() {
 
@@ -36,6 +36,8 @@ $(document).ready(function() {
 
   map.locate({setView: true, maxZoom: 11});
 
+
+
   // var povIcon = {
   //   radius: 5,
   //   fillColor: "red",
@@ -51,6 +53,12 @@ $(document).ready(function() {
   //     }
   // }).addTo(map);
 
+
+
+
+
+
+
   // var povIcon = L.Icon.extend({
   //   options: {
   //     iconUrl: "images/theme/pov.png",
@@ -58,36 +66,53 @@ $(document).ready(function() {
   //   }
   // });
 
-  // water_pov = new lvector.GISCloud({
+  // waterPov = new lvector.GISCloud({
   //   mapID: 77214,
   //   layerID: 239889,
   //   scaleRange: [5, 20],
   //   symbology: {
   //     type: "single", 
   //     vectorOptions: {
-  //       icon: new povIcon()
+  //       // icon: new povIcon()
   //     }
   //   },
   //   popupTemplate: '<div class="iw-content"><h5>{pod_id}</h5><table class="condensed-table"><tr><td>{watershed}</td></tr><tr><td>{county}</td></tr></table></div>',
   //   singlePopup: true
   // });
 
-  // water_pov.setMap(map);
+  // waterPov.setMap(map);
+  
+  
 
 
-  var markers = new L.MarkerClusterGroup({
-    // showCoverageOnHover: false
-  });
 
-  var geoJsonLayer = L.geoJson(pov, {
-    onEachFeature: function (feature, layer) {
-      layer.bindPopup('<strong>Pod ID: ' + feature.properties.POD_ID + '</strong><br>Source Name: ' + feature.properties.SOURCE_NAME + '<br>Watershed: ' + feature.properties.WATERSHED);
-    }
-  });
-  markers.addLayer(geoJsonLayer);
 
-  map.addLayer(markers);
-  map.fitBounds(markers.getBounds());
+
+  // var markers = new L.MarkerClusterGroup({
+  //   // showCoverageOnHover: false
+  // });
+
+  // var geoJsonLayer = L.geoJson(pov, {
+  //   onEachFeature: function (feature, layer) {
+  //     layer.bindPopup(
+  //       '<h5>Point of Diversion ID: ' + feature.properties.POD_ID 
+  //       + '<br>Source Name: ' + feature.properties.SOURCE_NAME 
+  //       + '<br>Watershed: ' + feature.properties.WATERSHED 
+  //       + '<br>County: ' + feature.properties.COUNTY 
+  //       + '<br>Right Type: ' + feature.properties.WATER_RIGHT_TYPE
+  //       + '<br>Right Status: ' + feature.properties.WATER_RIGHT_STATUS
+  //       + '<br>Annual Direct Diversion: ' + feature.properties.WATER_RIGHT_STATUS + feature.properties.DIVERSION_UNITS
+  //       + '<br>Diverson Storage Amount: ' + feature.properties.DIVERSION_STORAGE_AMOUNT
+  //       + '</h5>'
+  //     );
+  //   }
+  // });
+  // markers.addLayer(geoJsonLayer);
+
+  // map.addLayer(markers);
+  // map.fitBounds(markers.getBounds());
+
+
 
 });
 
